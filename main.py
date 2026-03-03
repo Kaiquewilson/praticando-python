@@ -1,0 +1,1 @@
+from contador import contador_de_palavras

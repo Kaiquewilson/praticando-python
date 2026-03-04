@@ -48,7 +48,7 @@ Dgite uma frase para contar o número de palavras: """)
 def main():
     limpar_tela()
     total_de_palavras()
-    ##voltar_menu()
+    voltar_menu()
 
 
 if __name__ == "__main__":

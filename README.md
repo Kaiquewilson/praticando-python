@@ -19,7 +19,7 @@ O sistema:
 * Conta automaticamente o número de palavras
 * Ajusta corretamente a pluralização
 * Organiza a execução através da função `main()`
-* Utiliza o padrão `if __name__ == "__main__"` para controle de execução
+* É usado o padrão `if __name__ == "__main__"` para controle de execução
 
 ---
 

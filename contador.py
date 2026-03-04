@@ -9,12 +9,21 @@ def plural_palavra(contador):
     else:
         return "palavras"
 
-def verificar_frase(frase):
-    #Usando o "isistance" eu estou falando o seguinte para a máquina
-    #"Ei máquina, verifque se a variavel 'frase' é do tipo string, se não
-    # for do tipo string, o resultado será um TypeError, ou seja um erro de tipo"
-    if not isinstance(frase, str):
-        raise TypeError('A frase deve conter letras válidas pelo sistema.')
+def verificar_frase(texto):
+    #Nessa etapa, o código precisa ter um padrão, visto que isso facilita a verificação das palvras.
+    #Já que no código "Padrão" é diferente de "padrão", o código não reconheceria as palavras como iguais, por isso, é necessário colocar tudo em minúsculo.
+
+    #essa implementação também nos ajuda a criar um contador de repetição de pavras.
+    texto = texto.lower()
+    caracteres = ".,:;/?-!@#$%¨&*()_+=|<>"
+    for char in caracteres:
+        texto = texto.replace(char, "")
+        #o que eu acabei de fazer aqui?
+        #Primeiro eu criei uma especie de "lista" de caracteres, que são os caracteres
+        #  que eu quero remover da minha frase, depois, eu utilizei um loop "for" para percorrer cada caractere dessa lista e utilizei o método 
+        # "replace" para substituir cada caractere por uma string vazia, ou seja, removendo esses caracteres da minha frase.
+    return texto
+
     
 def voltar_menu():
     input ('Pressione qualquer tecla para voltar ao menu principal...')
@@ -25,8 +34,12 @@ def voltar_menu():
 
 def total_de_palavras():
     print('Olá você está em um programa de aprendizagem de python')
-    frase = input('Digite uma frase : ')
-    verificar_frase(frase)
+ #-------------------------------------------------------------------------------------------------------------
+    frase = input("""OBS: o programa não inclui caracteres especiais, apenas letras e números.
+                  
+Dgite uma frase para contar o número de palavras: """)
+ #-------------------------------------------------------------------------------------------------------------
+    frase = verificar_frase(frase)
     contador_de_frase = len(frase.split())
 
     print(f'a frase: "{frase}" tem o total de {contador_de_frase} {plural_palavra(contador_de_frase)}.')

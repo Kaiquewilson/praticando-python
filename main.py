@@ -1,1 +1,1 @@
-from contador import contador_de_palavras
+print('oi')

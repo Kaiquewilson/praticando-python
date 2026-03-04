@@ -38,17 +38,32 @@ def total_de_palavras():
     frase = input("""OBS: o programa não inclui caracteres especiais, apenas letras e números.
                   
 Dgite uma frase para contar o número de palavras: """)
+    
  #-------------------------------------------------------------------------------------------------------------
     frase = verificar_frase(frase)
     contador_de_frase = len(frase.split())
 
     print(f'a frase: "{frase}" tem o total de {contador_de_frase} {plural_palavra(contador_de_frase)}.')
+ #--------------------------------------------------------------------------------------------------------------
+ 
+ #Agora vamos criar um contador de palavras, isso vai nos ajudar a contar quantas vezes cada palavra aparece
+    if not frase.strip():
+        return{}
+    #O que eu quis dizer aqui?
+    #Basicamente, eu estou verificando se a frase está vazia ou contém apenas espaços em branco.
+    #Caso isso ocorra ele vai retornar um dicionário vazio 
+
+    palavras = frase.split()
+    contagem = {}
+    for palavra in palavras:
+        contagem [palavra] = contagem.get(palavra, 0) + 1
+    return contagem
 
 
 def main():
     limpar_tela()
     total_de_palavras()
-    voltar_menu()
+    ##voltar_menu()
 
 
 if __name__ == "__main__":

@@ -31,11 +31,17 @@ def verificar_frase(texto):
 #-------------------------------------------------------------------------------------------------------------
 
 def voltar_menu():
-    input ('Pressione qualquer tecla para voltar ao menu principal...')
-    main()
+    resposta =input ('Pressione ENTER para voltar ao menu principal...')
+    if resposta == '':
+        limpar_tela()
+        main()
+    else:
+        print('agradeço por utilizar o programa, até a próxima!')
+
+    
 
 #-------------------------------------------------------------------------------------------------------------
-
+                                            #main
 def total_de_palavras():
     print('Olá você está em um programa de aprendizagem de python')
  #-------------------------------------------------------------------------------------------------------------
@@ -63,7 +69,7 @@ Dgite uma frase para contar o número de palavras: """)
 def main():
     limpar_tela()
     total_de_palavras()
-    ##voltar_menu()
+    voltar_menu()
 
 
 if __name__ == "__main__":

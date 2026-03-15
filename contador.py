@@ -3,11 +3,15 @@ import os
 def limpar_tela():
     os.system ('cls')
 
+#-------------------------------------------------------------------------------------------------------------
+
 def plural_palavra(contador):
     if contador == 1:
         return "palavra"
     else:
-        return "palavras"
+        return "palavras" 
+    
+#-------------------------------------------------------------------------------------------------------------
 
 def verificar_frase(texto):
     #Nessa etapa, o código precisa ter um padrão, visto que isso facilita a verificação das palvras.
@@ -24,13 +28,13 @@ def verificar_frase(texto):
         # "replace" para substituir cada caractere por uma string vazia, ou seja, removendo esses caracteres da minha frase.
     return texto
 
-    
+#-------------------------------------------------------------------------------------------------------------
+
 def voltar_menu():
     input ('Pressione qualquer tecla para voltar ao menu principal...')
     main()
-    
 
-
+#-------------------------------------------------------------------------------------------------------------
 
 def total_de_palavras():
     print('Olá você está em um programa de aprendizagem de python')
@@ -38,26 +42,22 @@ def total_de_palavras():
     frase = input("""OBS: o programa não inclui caracteres especiais, apenas letras e números.
                   
 Dgite uma frase para contar o número de palavras: """)
-    
+
  #-------------------------------------------------------------------------------------------------------------
+
     frase = verificar_frase(frase)
-    contador_de_frase = len(frase.split())
+    contador_de_frase = len(set(frase.split()))
 
     print(f'a frase: "{frase}" tem o total de {contador_de_frase} {plural_palavra(contador_de_frase)}.')
- #--------------------------------------------------------------------------------------------------------------
- 
- #Agora vamos criar um contador de palavras, isso vai nos ajudar a contar quantas vezes cada palavra aparece
-    if not frase.strip():
-        return{}
-    #O que eu quis dizer aqui?
-    #Basicamente, eu estou verificando se a frase está vazia ou contém apenas espaços em branco.
-    #Caso isso ocorra ele vai retornar um dicionário vazio 
 
-    palavras = frase.split()
-    contagem = {}
-    for palavra in palavras:
-        contagem [palavra] = contagem.get(palavra, 0) + 1
-    return contagem
+#--------------------------------------------------------------------------------------------------------------
+ # Um pequeno detalhe, mas com grande diferença no resultado, nessa fase do meu código eu já uso o método 
+ # "split" para dividir a frase em palavras, e o método "set" para eliminar as palavras repetidas, assim,
+ # o contador de palavras só conta as palavras únicas, ou seja, sem contar as palavras repetidas.
+ # dessa forma, o resultado do contador de palavras será mais preciso, já que ele não contará as palavras repetidas
+ #  como palavras diferentes.
+
+#--------------------------------------------------------------------------------------------------------------
 
 
 def main():
